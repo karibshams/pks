@@ -5,10 +5,14 @@ class Feedback(models.Model):
     email = models.EmailField()
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    def __str__(self): return f"{self.name} — {self.created_at.strftime('%Y-%m-%d')}"
 
-class ChatLog(models.Model):
+    def __str__(self):
+        return f"{self.name} - {self.created_at.strftime('%Y-%m-%d')}"
+
+class ChatMessage(models.Model):
     user_message = models.TextField()
-    ai_reply = models.TextField()
+    bot_reply = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    def __str__(self): return f"Chat @ {self.timestamp.strftime('%Y-%m-%d %H:%M')}"
+
+    def __str__(self):
+        return f"Chat @ {self.timestamp.strftime('%Y-%m-%d %H:%M')}"
